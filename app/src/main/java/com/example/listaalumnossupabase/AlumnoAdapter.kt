@@ -37,7 +37,12 @@ class AlumnoAdapter(
         txtTelefono.text = alumno.telefono ?: ""
 
         Glide.with(context)
-            .load(alumno.foto)
+            .load(
+                if (alumno.foto.isNullOrEmpty())
+                    null
+                else
+                    "https://sga.uteq.edu.ec${alumno.foto}"
+            )
             .placeholder(android.R.drawable.sym_def_app_icon)
             .error(android.R.drawable.sym_def_app_icon)
             .circleCrop()
