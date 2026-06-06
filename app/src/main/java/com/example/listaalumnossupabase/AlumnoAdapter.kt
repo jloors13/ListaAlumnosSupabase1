@@ -27,15 +27,19 @@ class AlumnoAdapter(
 
         val imgFoto = view.findViewById<ImageView>(R.id.imgFoto)
         val txtNombres = view.findViewById<TextView>(R.id.txtNombres)
+        val txtParalelo = view.findViewById<TextView>(R.id.txtParalelo)
         val txtCorreo = view.findViewById<TextView>(R.id.txtCorreo)
         val txtTelefono = view.findViewById<TextView>(R.id.txtTelefono)
 
         txtNombres.text = alumno.nombres
+        txtParalelo.text = "Paralelo: ${alumno.paralelo}"
         txtCorreo.text = alumno.correo ?: ""
         txtTelefono.text = alumno.telefono ?: ""
 
         Glide.with(context)
             .load(alumno.foto)
+            .placeholder(android.R.drawable.sym_def_app_icon)
+            .error(android.R.drawable.sym_def_app_icon)
             .circleCrop()
             .into(imgFoto)
 
