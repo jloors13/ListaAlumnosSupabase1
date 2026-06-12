@@ -4,10 +4,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Alumno(
-    val id: Long,
-    val foto: String? = null,
+    val id: Int,
+    val foto: String,
     val nombres: String,
-    val correo: String? = null,
+    val correo: String,
     val paralelo: String,
-    val telefono: String? = null
+    val telefono: String
 )

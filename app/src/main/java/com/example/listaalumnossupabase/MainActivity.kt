@@ -87,6 +87,7 @@ class MainActivity : AppCompatActivity() {
                     .from("alumnos")
                     .select()
                     .decodeList<Alumno>()
+                    .sortedBy { it.nombres }
 
                 listaAlumnos.adapter = AlumnoAdapter(
                     this@MainActivity,
